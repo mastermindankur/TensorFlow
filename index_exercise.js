@@ -33,12 +33,12 @@ async function train() {
     
    
   // Set the optimizer to be tf.train.adam() with a learning rate of 0.0001.
-  const optimizer = // YOUR CODE HERE
+  const optimizer = tf.train.adam(0.0001);
     
         
   // Compile the model using the categoricalCrossentropy loss, and
   // the optimizer you defined above.
-  model.compile(// YOUR CODE HERE);
+  model.compile({optimizer: optimizer, loss: 'categoricalCrossentropy'});
  
   let loss = 0;
   model.fit(dataset.xs, dataset.ys, {
